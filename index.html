@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz cumpleaños 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ffd1dc, #ffe4e1);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .reason {
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reason.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        button {
+            background-color: #ff6f91;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 1.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        button:hover {
+            background-color: #ff4f7a;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Razones por las que me encantas 💖</h1>
+        <div id="reason" class="reason"></div>
+        <button onclick="nextReason()">Ver otra razón</button>
+    </div>
+
+    <script>
+        const reasons = [
+            "Tu sonrisa mejora cualquier día 🌞",
+            "Siempre sabes cómo hacerme reír 😂",
+            "Me siento cómoda contigo sin tener que decir nada 🫶",
+            "Eres auténtico y eso me encanta ✨",
+            "Tienes una forma especial de ver el mundo 🌍",
+            "Me inspiras a ser mejor cada día 🚀",
+            "Siempre estás cuando te necesito, sin pedir nada a cambio 🤍",
+            "Con solo mirarte, se me olvida el mundo entero 🌍",
+            "Tu voz me da paz, como si todo estuviera bien 🎧",
+            "Hasta tus silencios son cómodos 🫂",
+            "Conviertes los días normales en algo especial ✨",
+            "La forma en que hablas de lo que amas te hace aún más adorable 🧠",
+            "Cada mensaje tuyo me saca una sonrisa tonta 😅",
+            "No intentas ser perfecto, y eso te hace perfecto 💯",
+            "Me inspiras confianza solo con existir 🛡️",
+            "Contigo, todo se siente más fácil 🛤️",
+            "Cuando pienso en el futuro, estás ahí sin dudarlo 🗓️",
+            "Hasta en tus rarezas, me gustas más 🦄",
+            "Me haces sentir segura, querida, vista 🪞",
+            "A veces ni sé por qué, pero lo siento tanto que da miedo (del bueno) 💘",
+            "No necesito razones para amarte, pero tengo muchísimas 🫶",
+            "Por último pero no menos importante: Te amo ❤️",
+            "Y podría seguir... pero prefiero decírtelo en persona 💬"
+        ];
+
+
+        let index = 0;
+        const reasonEl = document.getElementById('reason');
+
+        function nextReason() {
+            reasonEl.classList.remove('show');
+            setTimeout(() => {
+                reasonEl.textContent = reasons[index];
+                reasonEl.classList.add('show');
+                index = (index + 1) % reasons.length;
+            }, 300);
+        }
+        window.onload = () => {
+            nextReason();
+        };
+    </script>
+</body>
+
+</html>
